@@ -1,4 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
+import { logout } from './authReducer';
 
 const initialState = {
   value: 0,
@@ -16,6 +17,11 @@ export const counterSlice = createSlice({
       state.value -= actions.payload;
     },
    
+  },
+  extraReducers: {
+    [logout] : (state, actions) => {
+        state.value = 0;
+    }
   },
 })
 
